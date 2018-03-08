@@ -4,6 +4,7 @@
 ### Need to Install:
 - [darkskylib](https://github.com/lukaskubis/darkskylib) 
 - [google-maps python api](https://github.com/googlemaps/google-maps-services-python)
+- Flask (pip install Flask)
 
 ### API Keys
 - [Dark Sky API](https://darksky.net/dev)

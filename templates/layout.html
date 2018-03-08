@@ -5,18 +5,11 @@
 </head>
 
 <body>
-<div>
-	<form>
-		Address:
-		<input name="address" type="text">
-		<br><br>
-		<input name="date" type="text">
-		<br><br>
-		<input type="submit">
-	</form>
-
-	
-</div>
+	<div class="wrapper">
+		<div class="page-content">
+			{% block content %}{% endblock %}
+		</div>
+	</div>
 </body>
 
 </html>
