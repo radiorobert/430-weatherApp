@@ -18,7 +18,7 @@ def home():
 
 	print("Here's the input: {0}\t{1}".format(address,date))
 
-	return render_template('index.html')
+	return render_template('index.html',addr=address, time=date)
 
 
 ############## SOCKETIO ###############
