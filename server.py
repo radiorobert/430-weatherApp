@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request, session, redirect, url_for
 from flask_socketio import SocketIO, emit
 from WeatherForecast import WeatherForecast 
+from datetime import datetime as dt
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24).encode('hex')
@@ -12,16 +13,21 @@ wf = WeatherForecast()
 @app.route('/', methods = ['GET','POST'])
 def home():
     address = ""
-    date = ""
+    date = "" 
     
     if request.method == 'POST':
             address = request.form['address']
             date = request.form['date']
 
+            if date != "":
+                time = date.split('/')
+                date = dt(int(time[0]),int(time[1]),int(time[2]),int(time[3])).isoformat()
+
+
             print("INPUT\nAddress: {0}\nDate: {1}".format(address,date))
 
             wf.geocode_loc(address)
-            locDat = wf.wForecast()
+            locDat = wf.wForecast(date)
 
 
             return render_template('index.html',
