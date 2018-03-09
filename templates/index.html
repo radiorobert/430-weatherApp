@@ -10,12 +10,13 @@
 		<input type="text" id="date" name="date">
 		<br>
 		<br>
-		<button type="submit">hit it!</button>
+		<button type="submit">Hit it!</button>
 	</form>
 
-	<h3>Here's the Results!</h3>
-	<p>The Address: {{addr}}</p>
-	<p>The Date: {{time}}</p>
+    {% if current %}
+        <h3>Here's the Weather for {{addr}}!</h3>
+        <p>Currently it is: {{current}}&deg;F</p>
+    {% endif %}
 
 </div>
 {% endblock %}
