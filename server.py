@@ -14,6 +14,7 @@ wf = WeatherForecast()
 def home():
     address = ""
     date = "" 
+    is_future = False
     
     if request.method == 'POST':
             address = request.form['address']
@@ -21,10 +22,15 @@ def home():
             print(date)
 
             print("INPUT\nAddress: {0}\nDate: {1}".format(address,date))
+
+            # Check if future date
+            # TODO this could also be past, consider that homie.
             if date != "":
                 # automatically just assume it's noon for the response.
                 # this isn't really good but you know.
                 date = date + "T12:00:00"
+                is_future = True
+
 
             wf.geocode_loc(address)
             locDat = wf.wForecast(date)
@@ -32,8 +38,12 @@ def home():
 
             return render_template('index.html',
                     addr=address,
-                    time=date,
-                    current=locDat['currently']['temperature'])
+                    time=date.split('T')[0],
+                    current=locDat['currently']['temperature'],
+                    hourlySum=locDat['hourly']['summary'],
+                    high=locDat['daily']['data'][0]['temperatureHigh'],
+                    low=locDat['daily']['data'][0]['temperatureLow'],
+                    isFuture=is_future)
     else:
         return render_template('index.html')
 

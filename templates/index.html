@@ -15,8 +15,11 @@
 	</form>
 
     {% if current %}
-        <h3>Here's the Weather for {{addr}}!</h3>
-        <p>Currently it is: {{current}}&deg;F</p>
+    <h3>Here's the Weather for {{addr}} {% if isFuture %} on {{time}} {% endif %}!</h3>
+        <p>{% if not isFuture %} Currently it is {{current}}&deg;F {% endif %}</p>
+        <p>High: {{high}}&deg;F</p>
+        <p>Low: {{low}}&deg;F</p>
+        <p>{{hourlySum}}</p>
     {% endif %}
 
 </div>
