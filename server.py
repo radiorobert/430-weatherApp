@@ -18,13 +18,13 @@ def home():
     if request.method == 'POST':
             address = request.form['address']
             date = request.form['date']
-
-            if date != "":
-                time = date.split('/')
-                date = dt(int(time[0]),int(time[1]),int(time[2]),int(time[3])).isoformat()
-
+            print(date)
 
             print("INPUT\nAddress: {0}\nDate: {1}".format(address,date))
+            if date != "":
+                # automatically just assume it's noon for the response.
+                # this isn't really good but you know.
+                date = date + "T12:00:00"
 
             wf.geocode_loc(address)
             locDat = wf.wForecast(date)
