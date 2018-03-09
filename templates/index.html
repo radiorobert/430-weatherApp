@@ -2,16 +2,20 @@
 
 {% block content %}
 <div>
-	<form>
+	<form method="POST" action="/" id="forecast_dat">
 		Address:
-		<input name="address" type="text">
-		<br><br>
+		<input type="text" id="address" name="address">
+		<br>
 		Date:
-		<input name="date" type="text">
-		<br><br>
-		<input type="submit">
+		<input type="text" id="date" name="date">
+		<br>
+		<br>
+		<button type="submit">hit it!</button>
 	</form>
 
-	
+	<h3>Here's the Results!</h3>
+	<p ng-bind="address">The Address: </p>
+	<p ng-model="date">The Date: </p>
+
 </div>
 {% endblock %}
