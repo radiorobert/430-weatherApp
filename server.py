@@ -9,7 +9,6 @@ socketio = SocketIO(app)
 # Main Splash
 @app.route('/', methods = ['GET','POST'])
 def home():
-
 	address = ""
 	date = ""
 	if request.method == 'POST':
@@ -19,21 +18,6 @@ def home():
 	print("Here's the input: {0}\t{1}".format(address,date))
 
 	return render_template('index.html',addr=address, time=date)
-
-
-############## SOCKETIO ###############
-"""
-@socketio.on('connect', namespace='/')
-def makeConnection():
-	print("Connected to Splashpage")
-
-
-@socketio.on('makeForecast')
-def make_forecast(address, date):
-	print('Input was {0} and {1}'.format(address,date))
-	outputs = {'address': address, 'date': date}
-	emit('print_input', outputs)
-"""
 
 # start the server
 if __name__ == '__main__':
