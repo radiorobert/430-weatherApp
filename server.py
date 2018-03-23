@@ -5,7 +5,8 @@ from WeatherForecast import WeatherForecast
 from datetime import datetime as dt
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24).encode('hex')
+#for some reason I had to comment the line below in my code before it can run
+#app.secret_key = os.urandom(24).encode('hex')
 
 wf = WeatherForecast()
 
