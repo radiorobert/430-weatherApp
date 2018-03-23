@@ -13,6 +13,7 @@ pip install -U googlemaps
 - Flask 
 ```
 pip install Flask
+pip install flask-socketio
 ```
 
 ### API Keys
