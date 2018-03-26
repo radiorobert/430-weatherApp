@@ -1,5 +1,5 @@
 import os
-from darksky import forecast
+from forecastiopy import *
 import googlemaps
 
 class WeatherForecast:
@@ -42,9 +42,10 @@ class WeatherForecast:
     def wForecast(self,time=None): 
         if time is None:
             # Fetch conditions at input location
-            loc = forecast(self.ds_key, self.geoLoc['lat'], self.geoLoc['lng'])
+            loc = ForecastIO.ForecastIO(self.ds_key, latitude=self.geoLoc['lat'], longitude=self.geoLoc['lng'])
         else:
-            loc = forecast(self.ds_key, self.geoLoc['lat'], self.geoLoc['lng'], time)
+            loc = ForecastIO.ForecastIO(self.ds_key, latitude=self.geoLoc['lat'], longitude=self.geoLoc['lng'])
 
-        return loc
+        current = FIOCurrently.FIOCurrently(loc)
+        return current
 

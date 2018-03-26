@@ -39,10 +39,10 @@ def home():
             return render_template('index.html',
                     addr=address,
                     time=date.split('T')[0],
-                    current=locDat['currently']['temperature'],
-                    hourlySum=locDat['hourly']['summary'],
-                    high=locDat['daily']['data'][0]['temperatureHigh'],
-                    low=locDat['daily']['data'][0]['temperatureLow'],
+                    current=locDat.temperature,
+                    #hourlySum=locDat['hourly']['summary'],
+                    #high=locDat['daily']['data'][0]['temperatureHigh'],
+                    #low=locDat['daily']['data'][0]['temperatureLow'],
                     isFuture=is_future)
     else:
         return render_template('index.html')
