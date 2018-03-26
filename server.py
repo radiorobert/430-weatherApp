@@ -1,6 +1,5 @@
 import os
 from flask import Flask, render_template, request, session, redirect, url_for
-from flask_socketio import SocketIO, emit
 from WeatherForecast import WeatherForecast 
 from datetime import datetime as dt
 
