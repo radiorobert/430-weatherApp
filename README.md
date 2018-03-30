@@ -17,7 +17,7 @@ pip install flask-socketio
 ```
 
 ### API Keys
-- [Dark Sky API](https://darksky.net/dev)
+- [Dark Sky API](https://darksky.net/dev) : Create an account to get a private key 
 - [Google Dev Account](https://developers.google.com/console)
 Create a new project and select the geocoding API when getting credentials. 
 
