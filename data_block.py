@@ -28,3 +28,4 @@ hourlySum = loc['hourly']['summary']
 high = loc['daily']['data'][0]['temperatureHigh']
 low = loc['daily']['data'][0]['temperatureLow']
 
+print(current, hourlySum, high, low)
