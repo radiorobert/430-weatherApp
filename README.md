@@ -1,5 +1,8 @@
 # 430 Group Assignment Weather Application
 
+## BRANCH INFO
+This branch is for setting up a 10 year data forecast.
+
 ## Setup
 ### Need to Install:
 - [darkskylib](https://github.com/lukaskubis/darkskylib) 
