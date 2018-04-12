@@ -16,6 +16,22 @@ lng = -77.4605399
 """ year, month, day, hour """
 t = dt(2018, 4, 22, 12).isoformat()
 
+data = 10
+count = 0 
+high = [0] * 10
+low = [0] * 10 
+humidy =[0] * 10 
+dewpoint = [0] * 10 
+
+while count < data: 
+	
+	loc = forecast(ds_key, lat, lng, t)
+	print(count)
+	high[count] = loc['daily']['data'][0]['temperatureHigh']
+	print(t.year)
+	t[0] = t[0] - 1 
+	
+print(high)
 
 # loc = forecast(self.ds_key, self.geoLoc['lat'], self.geoLoc['lng'])
 
