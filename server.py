@@ -41,6 +41,8 @@ def home():
                     time=date.split('T')[0],
                     current=locDat['currently']['temperature'],
                     hourlySum=locDat['hourly']['summary'],
+                    Humidity = round(locDat['currently']['humidity']*100),
+                    dewpoint=locDat['currently']['dewPoint'],
                     high=locDat['daily']['data'][0]['temperatureHigh'],
                     low=locDat['daily']['data'][0]['temperatureLow'],
                     isFuture=is_future)
