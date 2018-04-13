@@ -2,6 +2,7 @@
 
 ## BRANCH INFO
 This branch is for setting up a 10 year data forecast.
+This is done by using 10 darksky api calls and decrementing the date that is requested. 
 
 ## Setup
 ### Need to Install:
