@@ -19,6 +19,9 @@ def home():
     if request.method == 'POST':
             address = request.form['address']
             date = request.form['date']
+
+            # Time_value: 0 = not set, -1 past date, 1 = within two weeks, 2 = future
+            time_value = 0 
             print(date)
 
             print("INPUT\nAddress: {0}\nDate: {1}".format(address,date))
@@ -28,12 +31,30 @@ def home():
             if date != "":
                 # automatically just assume it's noon for the response.
                 # this isn't really good but you know.
+                d = date.split('-')
                 date = date + "T12:00:00"
-                is_future = True
+
+                """ Logic for determining what future thing to use """
+                timed = dt(int(d[0]),int(d[1]),int(d[2]))
+                t_now = dt.today()
+
+                time_diff = timed - t_now
+                if(time_diff.days < 0):
+                    time_value = -1
+                    print("Processing PAST date")
+                elif(time_diff.days > 0 and time_diff.days <= 14):
+                    """ here we're just going to use the normal forecast
+                    since we're within 2 weeks """
+                    time_value = 1
+                    print("Processing date within 2 weeks")
+                else:
+                    time_value = 2
+                    print("Processing FUTURE date")
 
 
+            
             wf.geocode_loc(address)
-            locDat = wf.wForecast(date)
+            locDat = wf.wForecast(date,time_value)
 
 
             return render_template('index.html',
@@ -43,7 +64,7 @@ def home():
                     hourlySum=locDat['hourly']['summary'],
                     high=locDat['daily']['data'][0]['temperatureHigh'],
                     low=locDat['daily']['data'][0]['temperatureLow'],
-                    isFuture=is_future)
+                    time_ind=time_value)
     else:
         return render_template('index.html')
 

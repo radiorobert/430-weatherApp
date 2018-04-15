@@ -18,7 +18,7 @@
 
     {% if current %}
     <h3>Here's the Weather for {{addr}} {% if isFuture %} on {{time}} {% endif %}!</h3>
-        <p>{% if not isFuture %} Currently it is {{current}}&deg;F {% endif %}</p>
+        <p>{% if time_ind == 0 %} Currently it is {{current}}&deg;F {% endif %}</p>
         <p>High: {{high}}&deg;F</p>
         <p>Low: {{low}}&deg;F</p>
         <p>{{hourlySum}}</p>
