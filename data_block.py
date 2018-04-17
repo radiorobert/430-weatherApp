@@ -21,7 +21,6 @@ lng = -77.4605399
 """
 
 
-"""how would you get t from our input though? that's what is tripping me up. """
 
 t = []
 for i in range(10):
