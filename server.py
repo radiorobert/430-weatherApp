@@ -58,6 +58,8 @@ def home():
             # there's two keys in this, one for our data one for darkskies.
             # it's a mess now
             locDat = wf.wForecast(date,time_value)
+            print(type(locDat))
+            print(type(locDat['ds_dat']))
 
 
             return render_template('index.html',

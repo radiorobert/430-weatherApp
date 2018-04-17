@@ -7,7 +7,7 @@ class WeatherForecast:
     gmaps = None
     geoLoc = {}
     ds_key = ""
-    weather_dat = {"ds_dat": "", "our_dat": ""}
+    weather_dat = {"ds_dat": {}, "our_dat": {}}
     curr_year = 0
     forecast_type = "current"
 
@@ -40,14 +40,15 @@ class WeatherForecast:
         time = time.split('-')
         self.curr_year = dt.today().year
         for i in range(10):
-            t.append(dt(self.curr_year - i,int(time[1]),int(time[2])))
+            t.append(dt(self.curr_year - i,int(time[1]),int(time[2].split('T')[0])))
 
 
         """ Loop through 10 years and use the ds API to request it all
         + Add it all to a list of forecast objects """
         loc = []
         for i in range(10):
-            loc.append(forecast(ds_key, lat, lng, t[i]))
+            print("DEBUG {0}".format(t[i]))
+            loc.append(forecast(self.ds_key, self.geoLoc['lat'], self.geoLoc['lng'], t[i].strftime('%Y-%m-%d' + 'T12:00:00')))
 
 
         # Set it equal to the first entries just to populated them
@@ -91,13 +92,14 @@ class WeatherForecast:
             loc = forecast(self.ds_key, self.geoLoc['lat'], self.geoLoc['lng'])
             self.forecast_type = "current"
         else:
-            if time_value != 1:
+            if time_value == 1:
                 loc = forecast(self.ds_key, self.geoLoc['lat'], self.geoLoc['lng'], time)
                 self.forecast_type = "two_weeks"
-            else:
+            elif time_value == 2:
                 # This is when we run our own algorithm
                 # because it's greater than 2 weeks in the future
-                self.weather_dat['our_dat'] = ten_year_data(time)
+                loc = forecast(self.ds_key, self.geoLoc['lat'], self.geoLoc['lng'], time)
+                self.weather_dat['our_dat'] = self.ten_years_data(time)
                 self.forecast_type = "future"
 
 
@@ -105,5 +107,5 @@ class WeatherForecast:
 
 
 
-        return weather_dat 
+        return self.weather_dat 
 
