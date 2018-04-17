@@ -54,16 +54,20 @@ def home():
 
             
             wf.geocode_loc(address)
+
+            # there's two keys in this, one for our data one for darkskies.
+            # it's a mess now
             locDat = wf.wForecast(date,time_value)
 
 
             return render_template('index.html',
+                    forecast_type=wf.forecast_type,
                     addr=address,
                     time=date.split('T')[0],
-                    current=locDat['currently']['temperature'],
-                    hourlySum=locDat['hourly']['summary'],
-                    high=locDat['daily']['data'][0]['temperatureHigh'],
-                    low=locDat['daily']['data'][0]['temperatureLow'],
+                    current=locDat['ds_dat']['currently']['temperature'],
+                    hourlySum=locDat['ds_dat']['hourly']['summary'],
+                    high=locDat['ds_dat']['daily']['data'][0]['temperatureHigh'],
+                    low=locDat['ds_dat']['daily']['data'][0]['temperatureLow'],
                     time_ind=time_value)
     else:
         return render_template('index.html')
