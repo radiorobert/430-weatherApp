@@ -16,15 +16,33 @@
 		<br>
 	</form>
 
-    {% if current %}
+    {% if forecast_type == "current" %}
+    <h3>Here's the current Weather for {{addr}}!</h3>
+        <p>{% if time_ind == 0 %} Currently it is {{current}}&deg;F {% endif %}</p>
+        <p>High: {{high}}&deg;F</p>
+        <p>Low: {{low}}&deg;F</p>
+        <p>{{hourlySum}}</p>
+    {% endif %}
+
+    {% if forecast_type == "future"  %}
     <h3>Here's the Weather for {{addr}} {% if isFuture %} on {{time}} {% endif %}!</h3>
-        <p>{% if not isFuture %} Currently it is {{current}}&deg;F {% endif %}</p>
+    <h1>The results are based on the weather for this day for the past ten years</h1>
+        <p>{% if time_ind == 0 %} Currently it is {{current}}&deg;F {% endif %}</p>
+        <p>High: {{high}}&deg;F</p>
+        <p>Low: {{low}}&deg;F</p>
+        <p>{{hourlySum}}</p>
+    {% endif %}
+
+    {% if forecast_type == "two_weeks"  %}
+    <h3>Here's the Weather for {{addr}} {% if isFuture %} on {{time}} {% endif %}!</h3>
+        <p>{% if time_ind == 0 %} Currently it is {{current}}&deg;F {% endif %}</p>
         <p>High: {{high}}&deg;F</p>
         <p>Low: {{low}}&deg;F</p>
 	<p>Dew Point: {{dewpoint}}&deg;F</p>
         <p>Humidity: {{Humidity}}%</p>
         <p>{{hourlySum}}</p>
     {% endif %}
+
 
 </div>
 {% endblock %}
