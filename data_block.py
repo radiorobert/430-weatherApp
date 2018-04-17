@@ -19,6 +19,10 @@ lng = -77.4605399
 """ Loop through 10 years of the same day 
 + Add it all to list t, of time objects
 """
+
+
+"""how would you get t from our input though? that's what is tripping me up. """
+
 t = []
 for i in range(10):
     t.append(dt((2000+i), 4, 22, 12).isoformat())
