@@ -1,0 +1,114 @@
+.title{
+    text-align: center;
+    font-family: Arial;
+}
+.mainForm{
+    max-width:400px;
+    margin:50px auto;
+    background:#fff;
+    border-radius:2px;
+    padding:20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.mainForm h1{
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5C5C5C;
+    font-size:x-large;
+}
+.mainForm ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.mainForm li{
+    display: block;
+    padding: 9px;
+    border:1px solid #DDDDDD;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+.mainForm li:last-child{
+    border:none;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.mainForm li > label{
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: #FFFFFF;
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.mainForm input[type="text"],
+.mainForm input[type="date"],
+.mainForm input[type="datetime"],
+.mainForm input[type="email"],
+.mainForm input[type="number"],
+.mainForm input[type="search"],
+.mainForm input[type="time"],
+.mainForm input[type="url"],
+.mainForm input[type="password"],
+.mainForm textarea,
+.mainForm select
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.mainForm input[type="text"]:focus,
+.mainForm input[type="date"]:focus,
+.mainForm input[type="datetime"]:focus,
+.mainForm input[type="email"]:focus,
+.mainForm input[type="number"]:focus,
+.mainForm input[type="search"]:focus,
+.mainForm input[type="time"]:focus,
+.mainForm input[type="url"]:focus,
+.mainForm input[type="password"]:focus,
+.mainForm textarea:focus,
+.mainForm select:focus
+{
+}
+.mainForm li > span{
+    background: #F3F3F3;
+    display: block;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: #C0C0C0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+.mainForm textarea{
+    resize:none;
+}
+.mainForm input[type="submit"],
+.mainForm input[type="button"]{
+    background: #2471FF;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #5994FF;
+    border-radius: 3px;
+    color: #D2E2FF;
+}
+.mainForm input[type="submit"]:hover,
+.mainForm input[type="button"]:hover{
+    background: #6B9FFF;
+    color:#fff;
+}

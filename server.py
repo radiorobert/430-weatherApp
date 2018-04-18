@@ -66,8 +66,8 @@ def home():
                     forecast_type=wf.forecast_type,
                     addr=address,
                     time=date.split('T')[0],
-
                     current=locDat['ds_dat']['currently']['temperature'],
+                    curr_icon = locDat['ds_dat']['currently']['icon'],
                     hourlySum=locDat['ds_dat']['hourly']['summary'],
                     high=locDat['ds_dat']['daily']['data'][0]['temperatureHigh'],
                     low=locDat['ds_dat']['daily']['data'][0]['temperatureLow'],
