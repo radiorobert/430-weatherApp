@@ -86,7 +86,7 @@ class WeatherForecast:
     Returns loc, which is pretty much all the data
     """
     def wForecast(self,time=None,time_value=0): 
-        loc = 0
+        loc = forecast(self.ds_key, self.geoLoc['lat'], self.geoLoc['lng'])
         if time is None:
             # Fetch conditions at input location
             loc = forecast(self.ds_key, self.geoLoc['lat'], self.geoLoc['lng'])

@@ -18,6 +18,7 @@
 
     {% if forecast_type == "current" %}
     <h3>Here's the current Weather for {{addr}}!</h3>
+    <p><img src="static/climacons_stripped/{{curr_icon}}.svg" alt="{{curr_icon}}"/></p>
         <p>{% if time_ind == 0 %} Currently it is {{current}}&deg;F {% endif %}</p>
         <p>High: {{high}}&deg;F</p>
         <p>Low: {{low}}&deg;F</p>
