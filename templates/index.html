@@ -2,8 +2,9 @@
 
 {% block content %}
 <div>
-<br>
-<br>
+    <h1 class="title" >Future Weather</h1>
+    <p class="title">A webapp by Robert, Freda, and Brian</p>
+<!--
 	<form method="POST" action="/" id="forecast_dat" font size="20" align="left">
 		Address:
 		<input type="text" id="address" name="address">
@@ -15,10 +16,25 @@
 		<br>
 		<br>
 	</form>
+-->
+
+	<form method="POST" class="mainForm" action="/" id="forecast_dat" font size="20" align="left">
+        <ul>
+        <li>
+            <label for="Address">Address</label>
+            <input type="text" name="address" maxlength="100">
+            <span>Enter Your Address</span>
+        </li>
+        <li>
+            <label for="date">Date</label>
+            <input type="date" name="date" maxlength="100">
+            <span>Enter a valid date</span>
+        </li>
+	</form>
 
     {% if forecast_type == "current" %}
     <h3>Here's the current Weather for {{addr}}!</h3>
-    <p><img src="static/climacons_stripped/{{curr_icon}}.svg" alt="{{curr_icon}}"/></p>
+    <p><img src="static/images/climacons_stripped/{{curr_icon}}.svg" alt="{{curr_icon}}"/></p>
         <p>{% if time_ind == 0 %} Currently it is {{current}}&deg;F {% endif %}</p>
         <p>High: {{high}}&deg;F</p>
         <p>Low: {{low}}&deg;F</p>
