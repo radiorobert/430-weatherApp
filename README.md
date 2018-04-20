@@ -1,8 +1,7 @@
 # 430 Group Assignment Weather Application
 
 ## BRANCH INFO
-This branch is for setting up a 10 year data forecast.
-This is done by using 10 darksky api calls and decrementing the date that is requested. 
+Changed up the front-end a bunch to make it more minimal and streamlined.
 
 ## Setup
 ### Need to Install:
