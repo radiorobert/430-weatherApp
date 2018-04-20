@@ -1,5 +1,6 @@
 import os
 from darksky import forecast
+from collections import Counter
 import googlemaps
 from datetime import datetime as dt
 
@@ -62,8 +63,24 @@ class WeatherForecast:
 
         high_avg = high_avg/10
         low_avg = low_avg/10
-
-        weather_out = {'high_avg': high_avg, 'low_avg':low_avg}
+        
+        graph_1 = loc[0]['daily']['data'][0]['summary']
+        graph_2 = loc[1]['daily']['data'][0]['summary']
+        graph_3 = loc[2]['daily']['data'][0]['summary']
+        graph_4 = loc[3]['daily']['data'][0]['summary']
+        graph_5 = loc[4]['daily']['data'][0]['summary']
+        graph_6 = loc[5]['daily']['data'][0]['summary']
+        graph_7 = loc[6]['daily']['data'][0]['summary']
+        graph_8 = loc[7]['daily']['data'][0]['summary']
+        graph_9 = loc[8]['daily']['data'][0]['summary']
+        graph_10 = loc[9]['daily']['data'][0]['summary']
+        
+        graph = {'graph_1':graph_1, 'graph_2':graph_2, 'graph_3':graph_3, 'graph_4':graph_4, 'graph_5':graph_5, 'graph_6':graph_6, 'graph_7':graph_7, 'graph_8':graph_8,'graph_9':graph_9, 'graph_10':graph_10 }
+        graph_hist = Counter(graph.values()).most_common()
+        graph_hist = dict(graph_hist)
+        
+        print(graph_hist)
+        weather_out = {'high_avg': high_avg, "low_avg": low_avg, "graph_pie":graph_hist}
 
         return weather_out
         

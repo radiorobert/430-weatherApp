@@ -66,8 +66,6 @@ def home():
                     forecast_type=wf.forecast_type,
                     addr=address,
                     time=date.split('T')[0],
-                    Humidity = round(locDat['ds_dat']['currently']['humidity']*100),
-                    dewpoint=locDat['ds_dat']['currently']['dewPoint'],
                     current=locDat['ds_dat']['currently']['temperature'],
                     curr_icon = locDat['ds_dat']['currently']['icon'],
                     hourlySum=locDat['ds_dat']['hourly']['summary'],
